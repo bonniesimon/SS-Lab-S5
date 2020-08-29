@@ -1,6 +1,7 @@
-
+from termcolor import colored
 # files = ["" for x in range(100)]
 files = []
+error = 0
 
 
 def printDirectory():
@@ -21,14 +22,14 @@ def addFile(fname):
 def deleteFile(fname):
     # fname = input("Enter File Name : ")
     if fname not in files:
-        print("Error: File doesn't exist!!\n")
+        print(colored("Error: File doesn't exist!!\n",'red'))
         return
     files.remove(fname)
     
 
 print("Type help to list commands")
 while(1):
-    print("bonnie@SSlab>> ", end=" ")
+    print(colored("bonnie@SSlab >> ","blue"), end=" ")
     choice =input()
     command = choice.split(' ')[0]
     try:
