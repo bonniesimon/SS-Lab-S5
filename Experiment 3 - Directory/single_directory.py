@@ -13,25 +13,32 @@ def printDirectory():
             print("    ")
         print("---------------------------------------\n")
 
-def addFile():
-    fname = input("Enter File name : ")
+def addFile(fname):
+    # fname = input("Enter File name : ")
     files.append(fname)
     
-def deleteFile():
-    fname = input("Enter File Name : ")
+def deleteFile(fname):
+    # fname = input("Enter File Name : ")
+    if fname not in files:
+        print("File doesn't exist!!\n")
     
 
 while(1):
-    print("\n\nYou are in the only directory present.\nEnter 1 to show directory\nEnter 2 to add new file\nEnter 3 to delete file\nEnter anything else to exit\n")
-    choice = int(input())
-    if(choice == 1):
+    print("Type help to list commands")
+    print(">> ")
+    choice =input()
+    command = choice.split(' ')[0]
+    try:
+        filename = choice.split(' ')[1]
+    except:
+        pass
+    if(command== "ls"):
         printDirectory()
-    elif(choice == 2):
-        addFile()
-    elif(choice == 3):
-        print("Delete cheyyatte mwonusse\n")
-        # deleteFile()
-    elif(choice == 4):
+    elif(command == "touch"):
+        addFile(filename)
+    elif(command == "rm"):
+        deleteFile(filename)
+    elif(command == "exit"):
         exit()
     else:
         print("Wrong choice mishter!!\n")
