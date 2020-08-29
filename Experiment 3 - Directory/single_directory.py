@@ -9,10 +9,9 @@ def printDirectory():
         print("--------------------------\n | Empty Directory | \n--------------------------")
     else:
         # print("---------------------------------------\n root directory\n---------------------------------------\n")
-        print()
         for file in files:
-            print(file, end="   ")
-        print("\n")
+            print(colored(f"{file}", "cyan"), end="   ")
+        print('\n')
         # print("\n---------------------------------------\n")
 
 def addFile(fname):
