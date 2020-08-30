@@ -38,9 +38,6 @@ class Directory:
         if(not found):
             print("Error: Directory doesn't exist")
 
-
-
-
     def ls(self):
         for file in self.files:
             print(file, end="  ")
