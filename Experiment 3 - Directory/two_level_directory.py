@@ -14,6 +14,12 @@ class Directory:
 
     def touch(self, filename):
         self.files.append(filename)
+
+    def rm(self, filename):
+        if filename in self.files:
+            self.files.remove(filename) 
+            return
+        print("Error : File doesn't exists")
     
     def mkdir(self, directory_name):
         next_level = self.level + 1
@@ -21,6 +27,19 @@ class Directory:
             self.directories.append(Directory(directory_name,next_level))
         else:
             print("Error: Only two levels are possible")
+
+    def rmdir(self, directory_name):
+        found = 0
+        for directory in self.directories:
+            if (directory.name == directory_name):
+                found = 1
+                self.directories.remove(directory)
+                break
+        if(not found):
+            print("Error: Directory doesn't exist")
+
+
+
 
     def ls(self):
         for file in self.files:
@@ -84,6 +103,10 @@ def main():
             root.open(name)
         elif(command == "touchInto"):
             root.touchInto(name, option)
+        elif(command == "rm"):
+            root.rm(name)
+        elif(command == "rmdir"):
+            root.rmdir(name)
         elif(command == "exit"):
             exit()
         else:
