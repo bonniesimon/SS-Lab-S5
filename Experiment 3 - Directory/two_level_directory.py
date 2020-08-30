@@ -74,16 +74,7 @@ class Directory:
 
 def main():
     root = Directory("bin", 1)
-    # current_dir = root
-    # root.touch('main.py') 
-    # root.touch('fast.py')
-    # root.mkdir('projects')
-    # root.ls()
-    # root.touchInto('projects', 'project1')
-    # root.touchInto('projects', 'project2')
-    # root.open('projects')
-    # print()
-
+    print("Type help to list commands")    
     while(1):
         print(colored("bonnie@SSlab >> ","blue"), end=" ")
         choice =input()
@@ -107,6 +98,17 @@ def main():
             root.rm(name)
         elif(command == "rmdir"):
             root.rmdir(name)
+        elif(command == "help"):
+            print("----------------------------------------\nman page\n----------------------------------------")
+            print("%-35s %-38s" % ("ls", "List Files"))
+            print("%-35s %-38s" % ("touch <filename>", "Create a file"))
+            print("%-35s %-38s" % ("mkdir <directory>", "Create a directory"))
+            print("%-35s %-38s" % ("rm <filename>", "Delete a file"))
+            print("%-35s %-38s" % ("rmdir <directory>", "Delete a directory"))
+            print("%-35s %-38s" % ("open <directory>", "list contens of directory"))
+            print("%-35s %-38s" % ("touchInto <directory> <filename>", "Create file inside directory"))
+            print("%-35s %-38s" % ("exit", "Exit the shell"))
+            print("----------------------------------------\n")
         elif(command == "exit"):
             exit()
         else:
