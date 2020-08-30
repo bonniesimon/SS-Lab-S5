@@ -1,5 +1,5 @@
 from termcolor import colored
-# files = ["" for x in range(100)]
+
 files = []
 error = 0
 
@@ -16,7 +16,10 @@ def printDirectory():
 
 def addFile(fname):
     # fname = input("Enter File name : ")
-    files.append(fname)
+    if fname not in files:
+        files.append(fname)
+    else:
+        print(colored("Error: File already exist!!\n",'red'))
     
 def deleteFile(fname):
     # fname = input("Enter File Name : ")
@@ -51,7 +54,7 @@ while(1):
         print("%-20s %-20s" % ("exit", "Exit the shell"))
         print("----------------------------------------\n")
     else:
-        print("Wrong choice mishter!!\n")
+        print("Wrong choice!!\n")
 
 
 
