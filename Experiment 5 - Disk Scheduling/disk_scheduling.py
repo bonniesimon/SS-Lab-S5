@@ -25,7 +25,8 @@ def fcfs(request_queue, head):
     head_movement_path(head_movement)
     print("Total Head Movement = ", movement)
 
-def scan(request_queue, head):
+def scan(req_queue, head):
+    request_queue = req_queue[:]
     prev_head = head
     movement = 0
     head_movement = []
@@ -37,6 +38,28 @@ def scan(request_queue, head):
             head_movement.append(req)
             request_queue.remove(req)
     for req in range(200, 0, -1):
+        if req in request_queue:
+            movement += abs(req - prev_head)
+            prev_head = req
+            head_movement.append(req)
+            request_queue.remove(req)
+
+    head_movement_path(head_movement)
+    print("Total Head Movement : ", movement)
+
+def cscan(req_queue, head):
+    request_queue = req_queue[:]
+    prev_head = head
+    movement = 0
+    head_movement = []
+    head_movement.append(head)
+    for req in range(head, 200):
+        if req in request_queue:
+            movement += abs(req - prev_head)
+            prev_head = req
+            head_movement.append(req)
+            request_queue.remove(req)
+    for req in range(0, 200):
         if req in request_queue:
             movement += abs(req - prev_head)
             prev_head = req
@@ -61,6 +84,7 @@ def main():
     # head = request_queue[0]
     fcfs(request_queue, head)
     scan(request_queue, head)
+    cscan(request_queue, head)
     
 
 
