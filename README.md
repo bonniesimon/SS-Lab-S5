@@ -3,3 +3,4 @@
 
 
 > **Veruthe copy addikkathe oru star⭐ thannitt podey😁**
+![shit gif](https://media.giphy.com/media/btdKdBz6Pw4Ks/giphy.gif)
