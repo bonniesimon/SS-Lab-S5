@@ -7,9 +7,11 @@ def print_req(request_queue):
     print()
 
 def head_movement_path(head_movement):
+    print()
     for item in head_movement:
-        print(item, end="-> ")
+        print(item, end=" -> ")
     print("END")
+    print()
 
 
 def fcfs(request_queue, head):
@@ -19,11 +21,12 @@ def fcfs(request_queue, head):
     head_movement.append(head)
     for req in request_queue:
         movement += abs(req - prev_head)
-        # print(req, " - ", prev_head, "= ", abs(req - prev_head), " | total movement = ", movement)
         head_movement.append(req)
         prev_head = req
+    print("\n----------FCFS Scheduling----------")
     head_movement_path(head_movement)
     print("Total Head Movement = ", movement)
+    print("-----------------------------------\n")
 
 def scan(req_queue, head):
     request_queue = req_queue[:]
@@ -44,8 +47,10 @@ def scan(req_queue, head):
             head_movement.append(req)
             request_queue.remove(req)
 
+    print("\n----------SCAN Scheduling----------")
     head_movement_path(head_movement)
     print("Total Head Movement : ", movement)
+    print("-----------------------------------\n")
 
 def cscan(req_queue, head):
     request_queue = req_queue[:]
@@ -66,22 +71,23 @@ def cscan(req_queue, head):
             head_movement.append(req)
             request_queue.remove(req)
 
+    print("\n----------CSCAN Scheduling----------")
     head_movement_path(head_movement)
     print("Total Head Movement : ", movement)
+    print("-----------------------------------\n")
 
 
 
 def main():
     print("Enter the no. of request : ")
     n = int(input())
+
     print("Enter Head Position : ")
     head = int(input())
+
     print("Provide the positions to visit (max:200) : ")
-    request_queue = []
-    for i in range(n):
-        req_pos = int(input())
-        request_queue.append(req_pos)
-    # head = request_queue[0]
+    request_queue = [int(x) for x in input().split()]
+
     fcfs(request_queue, head)
     scan(request_queue, head)
     cscan(request_queue, head)
