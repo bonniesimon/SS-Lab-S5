@@ -1,4 +1,5 @@
 import sys
+from termcolor import colored
 
 
 def print_req(request_queue):
@@ -9,8 +10,8 @@ def print_req(request_queue):
 def head_movement_path(head_movement):
     print()
     for item in head_movement:
-        print(item, end=" -> ")
-    print("END")
+        print(colored(item, "blue"), end=colored(" -> ", "green"))
+    print(colored("END", "red"))
     print()
 
 
@@ -23,10 +24,10 @@ def fcfs(request_queue, head):
         movement += abs(req - prev_head)
         head_movement.append(req)
         prev_head = req
-    print("\n----------FCFS Scheduling----------")
+    print(colored("\n----------FCFS Scheduling----------","yellow"))
     head_movement_path(head_movement)
-    print("Total Head Movement = ", movement)
-    print("-----------------------------------\n")
+    print("Total Head Movement = ", colored(movement,"blue"))
+    print(colored("-----------------------------------\n","yellow"))
 
 def scan(req_queue, head):
     request_queue = req_queue[:]
@@ -47,10 +48,10 @@ def scan(req_queue, head):
             head_movement.append(req)
             request_queue.remove(req)
 
-    print("\n----------SCAN Scheduling----------")
+    print(colored("\n----------SCAN Scheduling----------","yellow"))
     head_movement_path(head_movement)
-    print("Total Head Movement : ", movement)
-    print("-----------------------------------\n")
+    print("Total Head Movement : ", colored(movement,"blue"))
+    print(colored("-----------------------------------\n","yellow"))
 
 def cscan(req_queue, head):
     request_queue = req_queue[:]
@@ -64,6 +65,7 @@ def cscan(req_queue, head):
             prev_head = req
             head_movement.append(req)
             request_queue.remove(req)
+    prev_head = 0
     for req in range(0, 200):
         if req in request_queue:
             movement += abs(req - prev_head)
@@ -71,10 +73,10 @@ def cscan(req_queue, head):
             head_movement.append(req)
             request_queue.remove(req)
 
-    print("\n----------CSCAN Scheduling----------")
+    print(colored("\n----------CSCAN Scheduling----------","yellow"))
     head_movement_path(head_movement)
-    print("Total Head Movement : ", movement)
-    print("-----------------------------------\n")
+    print("Total Head Movement : ", colored(movement,"blue"))
+    print(colored("-----------------------------------\n","yellow"))
 
 
 
