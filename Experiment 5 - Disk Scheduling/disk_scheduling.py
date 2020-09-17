@@ -35,16 +35,21 @@ def scan(req_queue, head):
     movement = 0
     head_movement = []
     head_movement.append(head)
+    # print("Movement : ")
     for req in range(head, 200):
         if req in request_queue:
             movement += abs(req - prev_head)
+            # print("From", prev_head, "to ", req, " Movement = ", abs(req- prev_head), "  Total movement till now : ", movement)
             prev_head = req
             head_movement.append(req)
             request_queue.remove(req)
     movement += abs(prev_head - 200)
+    # print("Movement to 200 : ",abs(prev_head - 200), " Total Movement : ", movement )
+    prev_head = 198
     for req in range(200, 0, -1):
         if req in request_queue:
             movement += abs(req - prev_head)
+            # print("From", prev_head, "to ", req, " Movement = ", abs(req- prev_head), "  Total movement till now : ", movement)
             prev_head = req
             head_movement.append(req)
             request_queue.remove(req)
@@ -67,6 +72,8 @@ def cscan(req_queue, head):
             head_movement.append(req)
             request_queue.remove(req)
     movement += abs(prev_head - 200)
+    # 198 since we're going to 0 and 200
+    movement += 198
     prev_head = 0
     for req in range(0, 200):
         if req in request_queue:
