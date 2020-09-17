@@ -59,7 +59,7 @@ def safety_algorithm(allocation, available, need):
             print("System not in safe state!")
             exit()
     
-    print("System is in safe state")
+    print("System is in safe state!")
     print(*safe_seq)
     exit()
 
