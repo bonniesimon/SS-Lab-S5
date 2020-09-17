@@ -39,6 +39,7 @@ def safety_algorithm(allocation, available, need):
     finished_process = 0
     work = available[:]
     finish = [0 for i in range(p)]
+    safe_seq = [0 for i in range(p)]
     i = 0
     while(count < p):
         isOneProcessAllocated = False
@@ -49,14 +50,17 @@ def safety_algorithm(allocation, available, need):
                     for i in range(r):
                         work[i] += allocation[process][i]
                     finish[process] = 1
+                    safe_seq[count] = process
                     count +=1
                     isOneProcessAllocated = True
+                    
         
         if(not isOneProcessAllocated):
             print("System not in safe state!")
             exit()
     
     print("System is in safe state")
+    print(*safe_seq)
     exit()
 
 
