@@ -41,6 +41,7 @@ def scan(req_queue, head):
             prev_head = req
             head_movement.append(req)
             request_queue.remove(req)
+    movement += abs(prev_head - 200)
     for req in range(200, 0, -1):
         if req in request_queue:
             movement += abs(req - prev_head)
@@ -65,6 +66,7 @@ def cscan(req_queue, head):
             prev_head = req
             head_movement.append(req)
             request_queue.remove(req)
+    movement += abs(prev_head - 200)
     prev_head = 0
     for req in range(0, 200):
         if req in request_queue:

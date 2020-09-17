@@ -42,7 +42,7 @@ class Directory:
         for file in self.files:
             print(file, end="  ")
         for directory in self.directories:
-            print(directory.name, end="  ")
+            print(directory.name,'/', end=" ")
         print()
     
     def open(self, directory_name):
@@ -73,7 +73,7 @@ def main():
     root = Directory("bin", 1)
     print("Type help to list commands")    
     while(1):
-        print(colored("bonnie@SSlab >> ","blue"), end=" ")
+        print(colored(">> ","blue"), end=" ")
         choice =input()
         command = choice.split(' ')[0]
         try:

@@ -31,7 +31,7 @@ def deleteFile(fname):
 
 print("Type help to list commands")
 while(1):
-    print(colored("bonnie@SSlab >> ","blue"), end=" ")
+    print(colored(">> ","blue"), end=" ")
     choice =input()
     command = choice.split(' ')[0]
     try:
