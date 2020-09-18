@@ -40,8 +40,8 @@ def main():
                 print("Buffer is empty!")
         elif(command == 'help'):
             print()
-            print("%-20s %-20s" % ("produce <data>", "produces <data> into buffer"))
-            print("%-20s %-20s" % ("consume", "produces <data> into buffer"))
+            print("%-22s %-20s" % ("produce <data>", "produces <data> into buffer"))
+            print("%-22s %-20s" % ("consume", "produces <data> into buffer"))
             print()
         elif(command == "exit"):
             exit()
