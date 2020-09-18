@@ -46,7 +46,7 @@ def main():
         elif(command == "exit"):
             exit()
         else:
-            print("Enter valid command mishter")
+            print("Enter valid command!!")
 
 
 main()
