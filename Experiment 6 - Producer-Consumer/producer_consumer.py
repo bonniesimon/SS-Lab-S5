@@ -1,3 +1,6 @@
+from termcolor import colored
+
+
 def print_buffer(buffer):
     print("Buffer = ", end="")
     for item in buffer:
@@ -13,6 +16,7 @@ def main():
     buffer = [0 for i in range(n)]
     print("type 'help' for command")
     while(True):
+        print(colored(">> ","blue"), end=" ")
         user_input = input()
         command = user_input.split()[0]
         try:
@@ -35,8 +39,12 @@ def main():
             else:
                 print("Buffer is empty!")
         elif(command == 'help'):
+            print()
             print("%-20s %-20s" % ("produce <data>", "produces <data> into buffer"))
             print("%-20s %-20s" % ("consume", "produces <data> into buffer"))
+            print()
+        elif(command == "exit"):
+            exit()
         else:
             print("Enter valid command mishter")
 
