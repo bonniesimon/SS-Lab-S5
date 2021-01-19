@@ -15,7 +15,7 @@ class CircularQueue():
           
         # condition if queue is full 
         if ((self.rear + 1) % self.size == self.front):  
-            print(" Queue is Full\n") 
+            print(" Buffer is Full\n") 
               
         # condition for empty queue 
         elif (self.front == -1):  
@@ -30,7 +30,7 @@ class CircularQueue():
               
     def dequeue(self): 
         if (self.front == -1): # codition for empty queue 
-            print ("Queue is Empty\n") 
+            print ("Buffer is Empty\n") 
               
         # condition for only one element 
         elif (self.front == self.rear):  
@@ -102,8 +102,8 @@ def main():
             buffer.display()
         elif(command == 'help'):
             print()
-            print("%-22s %-20s" % ("produce <data>", "produces <data> into buffer"))
-            print("%-22s %-20s" % ("consume", "produces <data> into buffer"))
+            print("%-22s %-20s" % ("p <data>", "produces <data> into buffer"))
+            print("%-22s %-20s" % ("c", "produces <data> into buffer"))
             print()
         elif(command == "exit"):
             exit()

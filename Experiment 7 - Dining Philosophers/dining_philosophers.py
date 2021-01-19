@@ -11,9 +11,9 @@ def all_philosophers_finished_eating(philosopher_finished_eating):
     return True
 
 def main():
-    n = 9
+    n = 5
     philosopher_finished_eating = [ 0 for i in range(n)]
-    chopstick = [1 for i in range(n)]
+    chopstick = [True for i in range(n)]
     flag = True
 
     while(flag):
